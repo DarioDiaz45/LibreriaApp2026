@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="LibreriaApp2026.Datos/LibreriaApp2026.Datos.csproj" />
+  <Project Path="LibreriaApp2026.Entidades/LibreriaApp2026.Entidades.csproj" />
+  <Project Path="LibreriaApp2026.Ioc/LibreriaApp2026.Ioc.csproj" />
+  <Project Path="LibreriaApp2026.Servicios/LibreriaApp2026.Servicios.csproj" />
+  <Project Path="LibreriaApp2026.Windows/LibreriaApp2026.Windows.csproj" />
+</Solution>
