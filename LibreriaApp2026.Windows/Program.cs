@@ -33,7 +33,7 @@ namespace LibreriaApp2026.Windows
             ApplicationConfiguration.Initialize();
 
            
-            Application.Run(provider.GetRequiredService<frmEditorial>());
+            Application.Run(provider.GetRequiredService<frmLogin>());
         }
     }
 }

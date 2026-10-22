@@ -36,6 +36,7 @@
             btnOK = new Button();
             btnCancelar = new Button();
             errorProvider1 = new ErrorProvider(components);
+            chkActivo = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -101,12 +102,23 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // chkActivo
+            // 
+            chkActivo.AutoSize = true;
+            chkActivo.Location = new Point(52, 111);
+            chkActivo.Name = "chkActivo";
+            chkActivo.Size = new Size(88, 19);
+            chkActivo.TabIndex = 6;
+            chkActivo.Text = "Esta Activa?";
+            chkActivo.UseVisualStyleBackColor = true;
+            // 
             // frmEditorialAe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(475, 232);
+            Controls.Add(chkActivo);
             Controls.Add(btnCancelar);
             Controls.Add(btnOK);
             Controls.Add(txtPaisOrigen);
@@ -129,5 +141,6 @@
         private Button btnOK;
         private Button btnCancelar;
         private ErrorProvider errorProvider1;
+        private CheckBox chkActivo;
     }
 }

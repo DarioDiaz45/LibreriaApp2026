@@ -3,6 +3,7 @@
     public class Tema
     {
         private string _nombre = null!;
+        public byte[] RowVersion { get; set; } = null!;
         public int Id { get; set; }
         public string Nombre
         {

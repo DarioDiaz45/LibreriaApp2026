@@ -7,6 +7,7 @@
         private string _nacionalidad = null!;
         private DateTime _fechaNacimiento;
         public int Id { get; set; }
+        public byte[] RowVersion { get; set; } = null!;
         public string Nombre
         {
             get => _nombre;

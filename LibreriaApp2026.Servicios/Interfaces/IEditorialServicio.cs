@@ -16,9 +16,9 @@ namespace LibreriaApp2026.Servicios.Interfaces
         
         Result<ResultadoPaginacionDto<EditorialListDto>> ObtenerPagina(int pagina,
             int cantidad, string campoOrdenar, bool esAscendente,
-            string? filtroPais = null, string? textoBuscar = null);
+            string? filtroPais = null, string? textoBuscar = null, bool? filtroActivo = null);
         Result<int> ObtenerPaginaRegistro(int seleccionadoId, int cantidadPorPagina,
-           string? filtroPais = null, string? textoBuscar = null);
+           string? filtroPais = null, string? textoBuscar = null, bool? filtroActivo = null);
        
 
     }

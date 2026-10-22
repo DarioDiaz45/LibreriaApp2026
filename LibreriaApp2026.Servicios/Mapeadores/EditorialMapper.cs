@@ -11,12 +11,13 @@ namespace LibreriaApp2026.Servicios.Mapeadores
             {
                 Id = editorial.Id,
                 Nombre = editorial.Nombre,
-                PaisOrigen = editorial.PaisOrigen
+                PaisOrigen = editorial.PaisOrigen,
+                Activo = editorial.Activo
             };
         }
         public static Editorial ToEntidad(EditorialCreateDto editorialDto)
         {
-            return new Editorial(editorialDto.Nombre, editorialDto.PaisOrigen);
+            return new Editorial(editorialDto.Nombre, editorialDto.PaisOrigen) { Activo = editorialDto.Activo };
         }
         public static Editorial ToEntidad(EditorialUpdateDto editorialDto)
         {
@@ -32,11 +33,12 @@ namespace LibreriaApp2026.Servicios.Mapeadores
             return new EditorialDeleteDto
             {
                 Id = editorial.Id,
-                
+                RowVersion = editorial.RowVersion
+
             };
         }
 
-                
+
         public static Editorial ToEntidadCreate(EditorialCreateDto editorialDto)
         {
             return new Editorial
@@ -51,7 +53,9 @@ namespace LibreriaApp2026.Servicios.Mapeadores
             {
                 Id = editorialDto.Id,
                 Nombre = editorialDto.Nombre,
-                PaisOrigen = editorialDto.PaisOrigen
+                PaisOrigen = editorialDto.PaisOrigen,
+                Activo = editorialDto.Activo,
+                RowVersion = editorialDto.RowVersion
             };
         }
 
@@ -61,7 +65,9 @@ namespace LibreriaApp2026.Servicios.Mapeadores
             {
                 Id = editorial.Id,
                 Nombre = editorial.Nombre,
-                PaisOrigen = editorial.PaisOrigen
+                PaisOrigen = editorial.PaisOrigen,
+                RowVersion = editorial.RowVersion,
+                Activo = editorial.Activo
             };
         }
 
@@ -70,7 +76,8 @@ namespace LibreriaApp2026.Servicios.Mapeadores
             return new EditorialDeleteDto
             {
                 Id = editorial.Id,
-                
+                RowVersion = editorial.RowVersion
+
             };
         }
 

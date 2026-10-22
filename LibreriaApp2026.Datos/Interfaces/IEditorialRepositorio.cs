@@ -9,6 +9,7 @@ namespace LibreriaApp2026.Datos.Interfaces
         bool TieneLibrosAsociados(int editorialId);
         int ObtenerPosicionRegistro(int seleccionadoId,
            Expression<Func<Editorial, bool>>? filtrarPor = null);
+        void Borrar(int id, byte[] rowVersion);
 
     }
 }

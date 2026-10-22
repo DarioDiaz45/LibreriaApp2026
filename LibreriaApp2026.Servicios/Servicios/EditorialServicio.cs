@@ -72,7 +72,7 @@ namespace LibreriaApp2026.Servicios.Servicios
                 var entidad = EditorialMapper.ToEntidadUpdate(dto);
 
 
-                if (_unitOfWork.Editoriales.Existe(e => e.Nombre == entidad.Nombre))
+                if (_unitOfWork.Editoriales.Existe(e => e.Nombre == entidad.Nombre && e.Id != entidad.Id))
                 {
                     return Result.Failure("Ya existe una editorial con ese nombre.");
                 }
@@ -103,7 +103,7 @@ namespace LibreriaApp2026.Servicios.Servicios
         {
             try
             {
-                _unitOfWork.Editoriales.Borrar(dto.Id);
+                _unitOfWork.Editoriales.Borrar(dto.Id, dto.RowVersion);
                 _unitOfWork.SaveChanges();
                 return Result.Success();
             }
@@ -159,7 +159,10 @@ namespace LibreriaApp2026.Servicios.Servicios
 
         public Result<EditorialUpdateDto> ObtenerParaEditar(int id)
         {
-            var editorial = _unitOfWork.Editoriales.ObtenerPorId(id);
+            var editorial = _unitOfWork.Editoriales.Query()
+               .AsNoTracking()
+               .FirstOrDefault(e => e.Id == id);
+
             if (editorial != null)
             {
                 var dto = EditorialMapper.ToUpdateDto(editorial);
@@ -189,13 +192,14 @@ namespace LibreriaApp2026.Servicios.Servicios
             string campoOrden,
             bool esAscendente,
             string? filtroPais = null,
-            string? textoBuscar = null)
+            string? textoBuscar = null,
+             bool? filtroActivo = null)
         {
             try
             {
                 Expression<Func<Editorial, bool>>? filtro = b =>
-
-                        (string.IsNullOrWhiteSpace(textoBuscar) || b.Nombre.Contains(textoBuscar));
+                 (filtroActivo == null || b.Activo == filtroActivo) &&
+                 (string.IsNullOrWhiteSpace(textoBuscar) || b.Nombre.Contains(textoBuscar));
 
                 Func<IQueryable<Editorial>, IOrderedQueryable<Editorial>>? ordenarPor = campoOrden switch
                 {
@@ -223,13 +227,14 @@ namespace LibreriaApp2026.Servicios.Servicios
         }
 
         public Result<int> ObtenerPaginaRegistro(int seleccionadoId, int cantidadPorPagina,
-            string? filtroPais = null, string? textoBuscar = null)
+            string? filtroPais = null, string? textoBuscar = null, bool? filtroActivo = null)
         {
             try
             {
                 Expression<Func<Editorial, bool>>? filtro = b =>
-                        (string.IsNullOrWhiteSpace(filtroPais) || b.PaisOrigen == filtroPais) &&
-                        (string.IsNullOrWhiteSpace(textoBuscar) || b.Nombre.Contains(textoBuscar));
+             (string.IsNullOrWhiteSpace(filtroPais) || b.PaisOrigen == filtroPais) &&
+             (filtroActivo == null || b.Activo == filtroActivo) &&
+             (string.IsNullOrWhiteSpace(textoBuscar) || b.Nombre.Contains(textoBuscar));
 
 
                 var posicion = _unitOfWork.Editoriales.ObtenerPosicionRegistro(seleccionadoId, filtro);

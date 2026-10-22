@@ -1,9 +1,7 @@
-﻿using LibreriaApp2026.Servicios.Common;
-using LibreriaApp2026.Servicios.DTOs.Editorial;
+﻿using LibreriaApp2026.Servicios.DTOs.Editorial;
 using LibreriaApp2026.Servicios.Interfaces;
 using LibreriaApp2026.Windows.Helpers;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections;
 
 namespace LibreriaApp2026.Windows
 {
@@ -20,6 +18,7 @@ namespace LibreriaApp2026.Windows
         private bool esAscendente = true;
 
         private string? filtroPais = null;
+        private bool? filtroActivo = null;
         public frmEditorial(IServiceProvider provider)
         {
             InitializeComponent();
@@ -34,14 +33,7 @@ namespace LibreriaApp2026.Windows
 
         private void frmEditorial_Load(object sender, EventArgs e)
         {
-            CargarGrilla();
-        }
-
-        private void CargarGrilla()
-        {
-            _lista = _servicio.ObtenerTodas();
-            dgvDatos.DataSource = null;
-            dgvDatos.DataSource = _lista;
+            RecargarGrilla();
         }
 
         private void RecargarGrilla()
@@ -193,6 +185,7 @@ namespace LibreriaApp2026.Windows
                         var nuevoId = frm.UltimoId;
 
 
+
                         bool sePuedeVer = true;
 
                         if (sePuedeVer)
@@ -234,10 +227,118 @@ namespace LibreriaApp2026.Windows
             }
 
         }
-        private void MostrarEnGrilla(ResultadoPaginacionDto<EditorialListDto> resultado)
+
+
+        private void tsbEditar_Click(object sender, EventArgs e)
         {
-            _bindingSource.DataSource = resultado.Items;
+            if (_bindingSource.Current == null)
+            {
+                MessageBox.Show("Debe seleccionar una fila de la grilla",
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var tipoListDto = (EditorialListDto)_bindingSource.Current;
+            var seleccionadoId = tipoListDto.Id;
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                try
+                {
+                    var tipoBombonesServicio = scope.ServiceProvider
+                .GetRequiredService<IEditorialServicio>();
+                    var resultadoConsulta = tipoBombonesServicio
+                        .ObtenerParaEditar(tipoListDto.Id);
+                    if (resultadoConsulta.IsFailure)
+                    {
+                        ErrorHelper.MostrarErrores(resultadoConsulta.Errors);
+                        return;
+                    }
+                    var tipoEditDto = resultadoConsulta.Value;
+                    using (frmEditorialAe frm = scope.ServiceProvider
+                        .GetRequiredService<frmEditorialAe>())
+                    {
+                        frm.Text = "Editar Editorial";
+                        frm.SetEditorial(tipoEditDto);
+                        frm.ShowDialog();
+                        var tipoEditado = frm.GetEditorial();
+                        if (tipoEditado is null) return;
+                        bool sePuedeVer = filtroActivo is null ||
+                            filtroActivo == tipoEditado.Activo;
+
+                        if (sePuedeVer)
+                        {
+                            var resultadoPagina = tipoBombonesServicio
+                                .ObtenerPaginaRegistro(seleccionadoId, _estado.RegistrosPorPagina,
+                                 filtroPais,
+                                 filtroActivo: filtroActivo);
+                            if (resultadoConsulta.IsFailure)
+                            {
+                                ErrorHelper.MostrarErrores(resultadoPagina.Errors);
+                                return;
+                            }
+                            _estado.PaginaActual = resultadoPagina.Value;
+                        }
+
+                        if (frm.ConcurrencyConflict)
+                        {
+                            RecargarGrilla();
+                        }
+                        if (frm.DataChanged)
+                        {
+                            RecargarGrilla();
+                        }
+                        if (sePuedeVer)
+                        {
+                            var registroEditado = _bindingSource.List
+                                .Cast<EditorialListDto>()
+                                .FirstOrDefault(tb => tb.Id == seleccionadoId);
+                            if (registroEditado is null) return;
+                            _bindingSource.Position = _bindingSource.IndexOf(registroEditado);
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("El registro editado no se puede mostrar\npor condición de filtro o búsqueda",
+                                "Advertencia",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnPrimero_Click(object sender, EventArgs e)
+        {
+            _estado.PrimeraPagina();
+            RecargarGrilla();
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            _estado.PaginaAnterior();
+            RecargarGrilla();
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            _estado.PaginaSiguiente();
+            RecargarGrilla();
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            _estado.UltimaPagina();
+            RecargarGrilla();
         }
     }
 }
+
+
+
 

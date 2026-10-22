@@ -31,5 +31,12 @@ namespace LibreriaApp2026.Datos.Repositorios
             
             return _dbContext.Libros.Any(l => l.EditorialId == editorialId);
         }
+        public void Borrar(int id, byte[] rowVersion)
+        {
+            var entidad = ObtenerPorId(id)
+                ?? throw new KeyNotFoundException();
+            _dbContext.Entry(entidad).Property(e => e.RowVersion).OriginalValue = rowVersion;
+            dbSet.Remove(entidad);
+        }
     }
 }

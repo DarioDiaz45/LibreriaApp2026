@@ -41,7 +41,7 @@
                     throw new ArgumentException("La contraseña debe tener entre 6 y 100 caracteres.", nameof(value));
                 }
 
-                // Nota: En la contraseña no se aplica Trim() para respetar espacios intencionales si existieran
+                
                 _password = value;
             }
         }

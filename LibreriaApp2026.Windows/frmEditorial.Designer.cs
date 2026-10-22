@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditorial));
             panel1 = new Panel();
             dgvDatos = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colPaisOrigen = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewCheckBoxColumn();
             panel3 = new Panel();
             btnUltimo = new Button();
             btnSiguiente = new Button();
@@ -51,9 +55,6 @@
             tsbActualizar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             tsbSalir = new ToolStripButton();
-            colId = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colPaisOrigen = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             panel3.SuspendLayout();
@@ -74,13 +75,44 @@
             // 
             // dgvDatos
             // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AllowUserToDeleteRows = false;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colPaisOrigen });
+            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colPaisOrigen, colActivo });
             dgvDatos.Dock = DockStyle.Fill;
             dgvDatos.Location = new Point(0, 81);
             dgvDatos.Name = "dgvDatos";
             dgvDatos.Size = new Size(772, 295);
             dgvDatos.TabIndex = 2;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.Visible = false;
+            // 
+            // colNombre
+            // 
+            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
+            // 
+            // colPaisOrigen
+            // 
+            colPaisOrigen.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPaisOrigen.DataPropertyName = "PaisOrigen";
+            colPaisOrigen.HeaderText = "Pais Origen";
+            colPaisOrigen.Name = "colPaisOrigen";
+            // 
+            // colActivo
+            // 
+            colActivo.DataPropertyName = "Activo";
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.Resizable = DataGridViewTriState.True;
+            colActivo.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // panel3
             // 
@@ -107,6 +139,7 @@
             btnUltimo.Size = new Size(49, 44);
             btnUltimo.TabIndex = 8;
             btnUltimo.UseVisualStyleBackColor = true;
+            btnUltimo.Click += btnUltimo_Click;
             // 
             // btnSiguiente
             // 
@@ -116,6 +149,7 @@
             btnSiguiente.Size = new Size(49, 41);
             btnSiguiente.TabIndex = 7;
             btnSiguiente.UseVisualStyleBackColor = true;
+            btnSiguiente.Click += btnSiguiente_Click;
             // 
             // btnAnterior
             // 
@@ -125,6 +159,7 @@
             btnAnterior.Size = new Size(49, 41);
             btnAnterior.TabIndex = 6;
             btnAnterior.UseVisualStyleBackColor = true;
+            btnAnterior.Click += btnAnterior_Click;
             // 
             // btnPrimero
             // 
@@ -134,6 +169,7 @@
             btnPrimero.Size = new Size(49, 41);
             btnPrimero.TabIndex = 5;
             btnPrimero.UseVisualStyleBackColor = true;
+            btnPrimero.Click += btnPrimero_Click;
             // 
             // lblPaginas2
             // 
@@ -229,6 +265,7 @@
             tsbEditar.Size = new Size(52, 67);
             tsbEditar.Text = "Editar";
             tsbEditar.TextImageRelation = TextImageRelation.ImageAboveText;
+            tsbEditar.Click += tsbEditar_Click;
             // 
             // toolStripSeparator1
             // 
@@ -271,24 +308,6 @@
             tsbSalir.Text = "Salir";
             tsbSalir.TextImageRelation = TextImageRelation.ImageAboveText;
             tsbSalir.Click += tsbSalir_Click;
-            // 
-            // colId
-            // 
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.Visible = false;
-            // 
-            // colNombre
-            // 
-            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
-            // 
-            // colPaisOrigen
-            // 
-            colPaisOrigen.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPaisOrigen.HeaderText = "Pais Origen";
-            colPaisOrigen.Name = "colPaisOrigen";
             // 
             // frmEditorial
             // 
@@ -337,5 +356,6 @@
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colPaisOrigen;
+        private DataGridViewCheckBoxColumn colActivo;
     }
 }

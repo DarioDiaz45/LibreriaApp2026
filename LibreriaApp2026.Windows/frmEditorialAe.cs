@@ -22,18 +22,21 @@ namespace LibreriaApp2026.Windows
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-           
-            
+            if (_editorialUpdateDto is not null)
+            {
                 txtNombre.Text = _editorialUpdateDto.Nombre;
                 txtPaisOrigen.Text = _editorialUpdateDto.PaisOrigen;
+                chkActivo.Checked = _editorialUpdateDto.Activo;
                 _esEdicion = true;
-            
+            }
+
         }
         public void SetEditorial(EditorialUpdateDto editorialDto)
         {
             _editorialUpdateDto = editorialDto;
             txtNombre.Text = editorialDto.Nombre;
             txtPaisOrigen.Text = editorialDto.PaisOrigen;
+            chkActivo.Checked = _editorialUpdateDto.Activo;
         }
         public EditorialUpdateDto GetEditorial()
         {
@@ -58,6 +61,7 @@ namespace LibreriaApp2026.Windows
                         var _tipoCreateDto = new EditorialCreateDto();
                         _tipoCreateDto.Nombre = txtNombre.Text;
                         _tipoCreateDto.PaisOrigen = txtPaisOrigen.Text;
+                        _tipoCreateDto.Activo = chkActivo.Checked;
                         var resultadoAgregar = _editorialServicio.Agregar(_tipoCreateDto);
                         if (resultadoAgregar.IsFailure)
                         {
@@ -84,6 +88,7 @@ namespace LibreriaApp2026.Windows
                         }
                         _editorialUpdateDto.Nombre = txtNombre.Text;
                         _editorialUpdateDto.PaisOrigen = txtPaisOrigen.Text;
+                        _editorialUpdateDto.Activo = chkActivo.Checked;
 
                         var resultadoEditar = _editorialServicio
                             .Editar(_editorialUpdateDto);
@@ -123,6 +128,7 @@ namespace LibreriaApp2026.Windows
             txtNombre.Clear();
             txtPaisOrigen.Clear();
             txtNombre.Focus();
+            chkActivo.Checked = true;
         }
 
         private bool ValidarDatos()

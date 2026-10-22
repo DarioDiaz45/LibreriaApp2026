@@ -15,7 +15,7 @@ namespace LibreriaApp2026.Windows
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-          
+
             Close();
         }
 

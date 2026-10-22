@@ -64,6 +64,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(198, 23);
             txtUsuario.TabIndex = 2;
+            txtUsuario.Text = "admin";
             // 
             // txtClave
             // 
@@ -71,6 +72,8 @@
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(198, 23);
             txtClave.TabIndex = 3;
+            txtClave.Text = "123456";
+            txtClave.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -84,6 +87,7 @@
             btnLogin.TextAlign = ContentAlignment.BottomCenter;
             btnLogin.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnCerrar
             // 
@@ -96,6 +100,7 @@
             btnCerrar.Text = "Cerrar";
             btnCerrar.TextImageRelation = TextImageRelation.ImageAboveText;
             btnCerrar.UseVisualStyleBackColor = false;
+            btnCerrar.Click += btnSalir_Click;
             // 
             // errorProvider1
             // 

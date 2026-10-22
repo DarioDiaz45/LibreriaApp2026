@@ -8,7 +8,7 @@
         private int _stock;
         private decimal _precio;
         private int _editorialId;
-
+        public byte[] RowVersion { get; set; } = null!;
         public int Id { get; set; }
         public string ISBN
         {

@@ -25,6 +25,10 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
                 .WithOne(l => l.Editorial)
                 .HasForeignKey(l => l.EditorialId)
                 .OnDelete(DeleteBehavior.Restrict);
+            builder.Property(e => e.RowVersion)
+                 .IsRowVersion();
+            builder.Property(e => e.Activo)
+            .IsRequired();
         }
     }
 }

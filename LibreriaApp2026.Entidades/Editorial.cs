@@ -6,7 +6,8 @@
         private string _paisOrigen = null!;
 
         public int Id { get; set; }
-      
+        public byte[] RowVersion { get; set; } = null!;
+        public bool Activo { get; set; } = true;
         public string Nombre
         {
             get => _nombre;
