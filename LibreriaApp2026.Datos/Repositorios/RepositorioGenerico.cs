@@ -49,6 +49,10 @@ namespace LibreriaApp2026.Datos.Repositorios
                 dbSet.Remove(entidad);
             }
         }
+        public bool Existe(Expression<Func<T, bool>> filter)
+        {
+            return _context.Set<T>().Any(filter);
+        }
 
         public virtual (List<T> lista, int totalRegistros) ObtenerPagina(
             int pagina,

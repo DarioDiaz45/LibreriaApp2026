@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            label1 = new Label();
-            btnLogaut = new Button();
-            panel3 = new Panel();
-            btnEditorial = new Button();
-            btnTemas = new Button();
-            btnLibros = new Button();
-            btnAutores = new Button();
-            label2 = new Label();
-            label3 = new Label();
             panel4 = new Panel();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             lblUsuario = new ToolStripStatusLabel();
+            label3 = new Label();
+            label2 = new Label();
+            panel3 = new Panel();
+            btnAutores = new Button();
+            btnLibros = new Button();
+            btnTemas = new Button();
+            btnEditorial = new Button();
+            panel2 = new Panel();
+            btnLogaut = new Button();
+            label1 = new Label();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
             panel4.SuspendLayout();
             statusStrip1.SuspendLayout();
+            panel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -63,112 +63,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(807, 450);
             panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.ControlDark;
-            panel2.Controls.Add(btnLogaut);
-            panel2.Controls.Add(label1);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(807, 76);
-            panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(22, 21);
-            label1.Margin = new Padding(3, 2, 3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(210, 37);
-            label1.TabIndex = 0;
-            label1.Text = "LIBRERIA 2026";
-            // 
-            // btnLogaut
-            // 
-            btnLogaut.BackColor = Color.Red;
-            btnLogaut.Location = new Point(657, 32);
-            btnLogaut.Name = "btnLogaut";
-            btnLogaut.Size = new Size(75, 28);
-            btnLogaut.TabIndex = 1;
-            btnLogaut.Text = "Logaut";
-            btnLogaut.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(btnAutores);
-            panel3.Controls.Add(btnLibros);
-            panel3.Controls.Add(btnTemas);
-            panel3.Controls.Add(btnEditorial);
-            panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(0, 76);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(232, 374);
-            panel3.TabIndex = 1;
-            // 
-            // btnEditorial
-            // 
-            btnEditorial.BackColor = SystemColors.ControlDarkDark;
-            btnEditorial.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditorial.Location = new Point(35, 37);
-            btnEditorial.Name = "btnEditorial";
-            btnEditorial.Size = new Size(139, 43);
-            btnEditorial.TabIndex = 2;
-            btnEditorial.Text = "Editoriales";
-            btnEditorial.UseVisualStyleBackColor = false;
-            // 
-            // btnTemas
-            // 
-            btnTemas.BackColor = SystemColors.ControlDarkDark;
-            btnTemas.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTemas.Location = new Point(35, 100);
-            btnTemas.Name = "btnTemas";
-            btnTemas.Size = new Size(139, 44);
-            btnTemas.TabIndex = 2;
-            btnTemas.Text = "Temas";
-            btnTemas.UseVisualStyleBackColor = false;
-            // 
-            // btnLibros
-            // 
-            btnLibros.BackColor = SystemColors.ControlDarkDark;
-            btnLibros.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLibros.Location = new Point(35, 167);
-            btnLibros.Name = "btnLibros";
-            btnLibros.Size = new Size(139, 44);
-            btnLibros.TabIndex = 2;
-            btnLibros.Text = "Libros";
-            btnLibros.UseVisualStyleBackColor = false;
-            // 
-            // btnAutores
-            // 
-            btnAutores.BackColor = SystemColors.ControlDarkDark;
-            btnAutores.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAutores.Location = new Point(35, 228);
-            btnAutores.Name = "btnAutores";
-            btnAutores.Size = new Size(139, 44);
-            btnAutores.TabIndex = 2;
-            btnAutores.Text = "Autores";
-            btnAutores.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(412, 128);
-            label2.Name = "label2";
-            label2.Size = new Size(165, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Sistema de Gestión de Libreria";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(358, 158);
-            label3.Name = "label3";
-            label3.Size = new Size(263, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Seleccione una opción del menú para comenzar.";
             // 
             // panel4
             // 
@@ -201,6 +95,114 @@
             lblUsuario.Size = new Size(108, 17);
             lblUsuario.Text = "Usuario Conectado";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(358, 158);
+            label3.Name = "label3";
+            label3.Size = new Size(263, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Seleccione una opción del menú para comenzar.";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(412, 128);
+            label2.Name = "label2";
+            label2.Size = new Size(165, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Sistema de Gestión de Libreria";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnAutores);
+            panel3.Controls.Add(btnLibros);
+            panel3.Controls.Add(btnTemas);
+            panel3.Controls.Add(btnEditorial);
+            panel3.Dock = DockStyle.Left;
+            panel3.Location = new Point(0, 76);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(232, 374);
+            panel3.TabIndex = 1;
+            // 
+            // btnAutores
+            // 
+            btnAutores.BackColor = SystemColors.ControlDarkDark;
+            btnAutores.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAutores.Location = new Point(35, 228);
+            btnAutores.Name = "btnAutores";
+            btnAutores.Size = new Size(139, 44);
+            btnAutores.TabIndex = 2;
+            btnAutores.Text = "Autores";
+            btnAutores.UseVisualStyleBackColor = false;
+            // 
+            // btnLibros
+            // 
+            btnLibros.BackColor = SystemColors.ControlDarkDark;
+            btnLibros.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLibros.Location = new Point(35, 167);
+            btnLibros.Name = "btnLibros";
+            btnLibros.Size = new Size(139, 44);
+            btnLibros.TabIndex = 2;
+            btnLibros.Text = "Libros";
+            btnLibros.UseVisualStyleBackColor = false;
+            // 
+            // btnTemas
+            // 
+            btnTemas.BackColor = SystemColors.ControlDarkDark;
+            btnTemas.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTemas.Location = new Point(35, 100);
+            btnTemas.Name = "btnTemas";
+            btnTemas.Size = new Size(139, 44);
+            btnTemas.TabIndex = 2;
+            btnTemas.Text = "Temas";
+            btnTemas.UseVisualStyleBackColor = false;
+            // 
+            // btnEditorial
+            // 
+            btnEditorial.BackColor = SystemColors.ControlDarkDark;
+            btnEditorial.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditorial.Location = new Point(35, 37);
+            btnEditorial.Name = "btnEditorial";
+            btnEditorial.Size = new Size(139, 43);
+            btnEditorial.TabIndex = 2;
+            btnEditorial.Text = "Editoriales";
+            btnEditorial.UseVisualStyleBackColor = false;
+            btnEditorial.Click += btnEditorial_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.ControlDark;
+            panel2.Controls.Add(btnLogaut);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(807, 76);
+            panel2.TabIndex = 0;
+            // 
+            // btnLogaut
+            // 
+            btnLogaut.BackColor = Color.Red;
+            btnLogaut.Location = new Point(657, 32);
+            btnLogaut.Name = "btnLogaut";
+            btnLogaut.Size = new Size(75, 28);
+            btnLogaut.TabIndex = 1;
+            btnLogaut.Text = "Logaut";
+            btnLogaut.UseVisualStyleBackColor = false;
+            btnLogaut.Click += btnLogaut_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(22, 21);
+            label1.Margin = new Padding(3, 2, 3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(210, 37);
+            label1.TabIndex = 0;
+            label1.Text = "LIBRERIA 2026";
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -209,15 +211,16 @@
             Controls.Add(panel1);
             Name = "frmPrincipal";
             Text = "frmPrincipal";
+            Load += frmPrincipal_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 

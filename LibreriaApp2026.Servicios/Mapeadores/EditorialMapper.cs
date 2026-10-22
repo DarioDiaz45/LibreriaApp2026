@@ -5,7 +5,7 @@ namespace LibreriaApp2026.Servicios.Mapeadores
 {
     public class EditorialMapper
     {
-        public static EditorialListDto ToEditorialListDto(Editorial editorial)
+        public static EditorialListDto ToListDto(Editorial editorial)
         {
             return new EditorialListDto
             {
@@ -14,20 +14,65 @@ namespace LibreriaApp2026.Servicios.Mapeadores
                 PaisOrigen = editorial.PaisOrigen
             };
         }
-
-        public static Editorial ToEditorial(EditorialCreateDto dto)
+        public static Editorial ToEntidad(EditorialCreateDto editorialDto)
         {
-            return new Editorial(dto.Nombre, dto.PaisOrigen);
+            return new Editorial(editorialDto.Nombre, editorialDto.PaisOrigen);
         }
-
-        public static Editorial ToEditorial(EditorialUpdateDto dto)
+        public static Editorial ToEntidad(EditorialUpdateDto editorialDto)
         {
             return new Editorial
             {
-                Id = dto.Id,
-                Nombre = dto.Nombre,
-                PaisOrigen = dto.PaisOrigen
+                Id = editorialDto.Id,
+                Nombre = editorialDto.Nombre,
+                PaisOrigen = editorialDto.PaisOrigen
             };
         }
+        public static EditorialDeleteDto ToDeleteDto(Editorial editorial)
+        {
+            return new EditorialDeleteDto
+            {
+                Id = editorial.Id,
+                
+            };
+        }
+
+                
+        public static Editorial ToEntidadCreate(EditorialCreateDto editorialDto)
+        {
+            return new Editorial
+            {
+                Nombre = editorialDto.Nombre,
+                PaisOrigen = editorialDto.PaisOrigen
+            };
+        }
+        public static Editorial ToEntidadUpdate(EditorialUpdateDto editorialDto)
+        {
+            return new Editorial
+            {
+                Id = editorialDto.Id,
+                Nombre = editorialDto.Nombre,
+                PaisOrigen = editorialDto.PaisOrigen
+            };
+        }
+
+        public static EditorialUpdateDto ToUpdateDto(Editorial editorial)
+        {
+            return new EditorialUpdateDto
+            {
+                Id = editorial.Id,
+                Nombre = editorial.Nombre,
+                PaisOrigen = editorial.PaisOrigen
+            };
+        }
+
+        public static EditorialDeleteDto ToDeleteDtoEditorial(Editorial editorial)
+        {
+            return new EditorialDeleteDto
+            {
+                Id = editorial.Id,
+                
+            };
+        }
+
     }
 }

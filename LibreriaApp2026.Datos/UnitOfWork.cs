@@ -1,5 +1,6 @@
 ﻿using LibreriaApp2026.Datos.Interfaces;
 using LibreriaApp2026.Datos.Repositorios;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibreriaApp2026.Datos
 {
@@ -24,6 +25,26 @@ namespace LibreriaApp2026.Datos
         public int SaveChanges()
         {
             return _context.SaveChanges();
+        }
+
+        public void RollBack()
+        {
+            foreach (var item in _context.ChangeTracker.Entries())
+            {
+                switch (item.State)
+                {
+                    case EntityState.Modified:
+                        item.State = EntityState.Unchanged;
+                        item.CurrentValues.SetValues(item.OriginalValues);
+                        break;
+                    case EntityState.Added:
+                        item.State = EntityState.Detached;
+                        break;
+                    case EntityState.Deleted:
+                        item.State = EntityState.Unchanged;
+                        break;
+                }
+            }
         }
     }
 }

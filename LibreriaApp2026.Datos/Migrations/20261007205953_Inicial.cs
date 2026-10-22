@@ -77,7 +77,7 @@ namespace LibreriaApp2026.Datos.Migrations
                         column: x => x.EditorialId,
                         principalTable: "Editoriales",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,13 +95,13 @@ namespace LibreriaApp2026.Datos.Migrations
                         column: x => x.AutoresId,
                         principalTable: "Autores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_AutorLibro_Libros_LibrosId",
                         column: x => x.LibrosId,
                         principalTable: "Libros",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -119,13 +119,13 @@ namespace LibreriaApp2026.Datos.Migrations
                         column: x => x.LibrosId,
                         principalTable: "Libros",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_LibroTema_Temas_TemasId",
                         column: x => x.TemasId,
                         principalTable: "Temas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(

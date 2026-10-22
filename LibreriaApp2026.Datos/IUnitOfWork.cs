@@ -11,6 +11,7 @@ namespace LibreriaApp2026.Datos
         // ILibroRepositorio Libros { get; }
 
         int SaveChanges();
+        void RollBack();
 
     }
 }

@@ -6,6 +6,7 @@
         private string _paisOrigen = null!;
 
         public int Id { get; set; }
+      
         public string Nombre
         {
             get => _nombre;
