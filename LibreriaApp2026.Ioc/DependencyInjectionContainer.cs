@@ -2,9 +2,11 @@
 using LibreriaApp2026.Datos;
 using LibreriaApp2026.Datos.Interfaces;
 using LibreriaApp2026.Datos.Repositorios;
+using LibreriaApp2026.Servicios.DTOs.Autor;
 using LibreriaApp2026.Servicios.DTOs.Editorial;
 using LibreriaApp2026.Servicios.Interfaces;
 using LibreriaApp2026.Servicios.Servicios;
+using LibreriaApp2026.Servicios.Validators.Autor;
 using LibreriaApp2026.Servicios.Validators.Editorial;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,13 +21,19 @@ namespace LibreriaApp2026.Ioc
            
             services.AddDbContext<LibreriaDbContext>();
 
-           
+            //EDITORIAL
             services.AddScoped<IEditorialRepositorio, EditorialRepositorio>();
             services.AddScoped<IEditorialServicio, EditorialServicio>();
             services.AddScoped<IValidator<EditorialCreateDto>, EditorialCreateDtoValidator>();
             services.AddScoped<IValidator<EditorialUpdateDto>, EditorialUpdateDtoValidator>();
 
-           
+            //AUTOR
+            services.AddScoped<IAutorRepositorio, AutorRepositorio>();
+            services.AddScoped<IAutorServicio, AutorServicio>();
+            services.AddScoped<IValidator<AutorCreateDto>, AutorCreateDtoValidator>();
+            services.AddScoped<IValidator<AutorUpdateDto>, AutorUpdateDtoValidator>();
+
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

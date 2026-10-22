@@ -27,6 +27,8 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
             builder.Property(a => a.FechaNacimiento)
                 .HasColumnType("date")
                 .IsRequired();
+            builder.Property(a => a.RowVersion)
+             .IsRowVersion();
         }
     }
 }

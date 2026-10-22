@@ -30,5 +30,14 @@ namespace LibreriaApp2026.Windows
                 frm.ShowDialog();
             }
         }
+
+        private void btnAutores_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmAutor>())
+            {
+                frm.Text = "Lista de Autores";
+                frm.ShowDialog();
+            }
+        }
     }
 }

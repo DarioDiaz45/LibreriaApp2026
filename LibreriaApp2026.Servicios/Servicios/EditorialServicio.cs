@@ -103,6 +103,10 @@ namespace LibreriaApp2026.Servicios.Servicios
         {
             try
             {
+                if (_unitOfWork.Editoriales.TieneLibrosAsociados(dto.Id))
+                {
+                    return Result.Failure("No se puede eliminar la editorial porque tiene libros asociados.");
+                }
                 _unitOfWork.Editoriales.Borrar(dto.Id, dto.RowVersion);
                 _unitOfWork.SaveChanges();
                 return Result.Success();

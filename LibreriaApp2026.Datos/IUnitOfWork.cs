@@ -6,7 +6,7 @@ namespace LibreriaApp2026.Datos
     {
 
         IEditorialRepositorio Editoriales { get; }
-        // IAutorRepositorio Autores { get; }
+        IAutorRepositorio Autores { get; }
         // ITemaRepositorio Temas { get; }
         // ILibroRepositorio Libros { get; }
 

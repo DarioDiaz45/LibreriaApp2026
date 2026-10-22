@@ -135,6 +135,7 @@
             btnAutores.TabIndex = 2;
             btnAutores.Text = "Autores";
             btnAutores.UseVisualStyleBackColor = false;
+            btnAutores.Click += btnAutores_Click;
             // 
             // btnLibros
             // 
