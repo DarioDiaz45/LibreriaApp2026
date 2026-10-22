@@ -9,8 +9,9 @@ namespace LibreriaApp2026.Datos.Interfaces
         T? ObtenerPorId(int id);
         void Agregar(T entidad);
         void Editar(T entidad, int id);
-        void Borrar(int id);
         bool Existe(Expression<Func<T, bool>> filter);
+        void Borrar(int id);
+       
         (List<T> lista, int totalRegistros) ObtenerPagina(int pagina,
             int cantidad,
             Func<IQueryable<T>, IOrderedQueryable<T>> ordenarPor,
