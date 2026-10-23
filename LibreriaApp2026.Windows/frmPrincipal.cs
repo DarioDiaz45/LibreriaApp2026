@@ -39,5 +39,14 @@ namespace LibreriaApp2026.Windows
                 frm.ShowDialog();
             }
         }
+
+        private void btnTemas_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmTema>())
+            {
+                frm.Text = "Lista de Temas";
+                frm.ShowDialog();
+            }
+        }
     }
 }

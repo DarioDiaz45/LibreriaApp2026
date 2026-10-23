@@ -109,7 +109,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = SystemColors.ControlDark;
+            btnCancelar.BackColor = SystemColors.ActiveCaption;
             btnCancelar.Image = Properties.Resources.Cancel;
             btnCancelar.Location = new Point(391, 162);
             btnCancelar.Name = "btnCancelar";
@@ -122,7 +122,7 @@
             // 
             // btnOK
             // 
-            btnOK.BackColor = SystemColors.ControlDark;
+            btnOK.BackColor = SystemColors.ActiveCaption;
             btnOK.Image = Properties.Resources.Check_Mark;
             btnOK.Location = new Point(148, 162);
             btnOK.Name = "btnOK";
@@ -141,7 +141,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.FromArgb(192, 255, 255);
             ClientSize = new Size(638, 259);
             Controls.Add(btnCancelar);
             Controls.Add(btnOK);

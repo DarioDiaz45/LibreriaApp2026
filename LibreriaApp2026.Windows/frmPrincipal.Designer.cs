@@ -52,7 +52,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlDark;
+            panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -75,7 +75,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.BackColor = SystemColors.ControlDark;
+            statusStrip1.BackColor = SystemColors.ActiveCaption;
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, lblUsuario });
             statusStrip1.Location = new Point(0, 1);
             statusStrip1.Name = "statusStrip1";
@@ -115,6 +115,7 @@
             // 
             // panel3
             // 
+            panel3.BackColor = SystemColors.ActiveCaption;
             panel3.Controls.Add(btnAutores);
             panel3.Controls.Add(btnLibros);
             panel3.Controls.Add(btnTemas);
@@ -127,7 +128,7 @@
             // 
             // btnAutores
             // 
-            btnAutores.BackColor = SystemColors.ControlDarkDark;
+            btnAutores.BackColor = Color.FromArgb(192, 255, 255);
             btnAutores.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAutores.Location = new Point(35, 228);
             btnAutores.Name = "btnAutores";
@@ -139,7 +140,7 @@
             // 
             // btnLibros
             // 
-            btnLibros.BackColor = SystemColors.ControlDarkDark;
+            btnLibros.BackColor = Color.FromArgb(192, 255, 255);
             btnLibros.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLibros.Location = new Point(35, 167);
             btnLibros.Name = "btnLibros";
@@ -150,7 +151,7 @@
             // 
             // btnTemas
             // 
-            btnTemas.BackColor = SystemColors.ControlDarkDark;
+            btnTemas.BackColor = Color.FromArgb(192, 255, 255);
             btnTemas.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTemas.Location = new Point(35, 100);
             btnTemas.Name = "btnTemas";
@@ -158,10 +159,11 @@
             btnTemas.TabIndex = 2;
             btnTemas.Text = "Temas";
             btnTemas.UseVisualStyleBackColor = false;
+            btnTemas.Click += btnTemas_Click;
             // 
             // btnEditorial
             // 
-            btnEditorial.BackColor = SystemColors.ControlDarkDark;
+            btnEditorial.BackColor = Color.FromArgb(192, 255, 255);
             btnEditorial.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditorial.Location = new Point(35, 37);
             btnEditorial.Name = "btnEditorial";
@@ -173,7 +175,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = SystemColors.ControlDark;
+            panel2.BackColor = SystemColors.ActiveCaption;
             panel2.Controls.Add(btnLogaut);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;

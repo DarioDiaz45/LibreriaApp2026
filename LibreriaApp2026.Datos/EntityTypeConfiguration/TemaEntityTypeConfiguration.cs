@@ -18,7 +18,9 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
 
             builder.Property(t => t.Descripcion)
                 .HasMaxLength(255)
-                .IsRequired(false); 
+                .IsRequired(false);
+            builder.Property(t => t.RowVersion)
+                .IsRowVersion();
         }
     }
 }

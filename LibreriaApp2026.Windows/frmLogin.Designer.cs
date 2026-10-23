@@ -60,6 +60,7 @@
             // 
             // txtUsuario
             // 
+            txtUsuario.BackColor = SystemColors.InactiveCaption;
             txtUsuario.Location = new Point(156, 74);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(198, 23);
@@ -68,6 +69,7 @@
             // 
             // txtClave
             // 
+            txtClave.BackColor = SystemColors.InactiveCaption;
             txtClave.Location = new Point(156, 117);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(198, 23);
@@ -77,7 +79,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = SystemColors.ButtonShadow;
+            btnLogin.BackColor = Color.FromArgb(192, 255, 255);
             btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
             btnLogin.Location = new Point(100, 195);
             btnLogin.Name = "btnLogin";
@@ -91,7 +93,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.BackColor = SystemColors.ControlDark;
+            btnCerrar.BackColor = Color.FromArgb(192, 255, 255);
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
             btnCerrar.Location = new Point(279, 195);
             btnCerrar.Name = "btnCerrar";
@@ -110,7 +112,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDarkDark;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(490, 286);
             Controls.Add(btnCerrar);
             Controls.Add(btnLogin);

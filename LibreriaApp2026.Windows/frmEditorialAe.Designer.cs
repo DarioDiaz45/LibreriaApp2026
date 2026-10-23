@@ -74,7 +74,7 @@
             // 
             // btnOK
             // 
-            btnOK.BackColor = SystemColors.ControlDark;
+            btnOK.BackColor = SystemColors.ActiveCaption;
             btnOK.Image = Properties.Resources.Check_Mark;
             btnOK.Location = new Point(52, 152);
             btnOK.Name = "btnOK";
@@ -87,7 +87,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = SystemColors.ControlDark;
+            btnCancelar.BackColor = SystemColors.ActiveCaption;
             btnCancelar.Image = Properties.Resources.Cancel;
             btnCancelar.Location = new Point(295, 152);
             btnCancelar.Name = "btnCancelar";
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDarkDark;
+            BackColor = Color.FromArgb(192, 255, 255);
             ClientSize = new Size(475, 232);
             Controls.Add(chkActivo);
             Controls.Add(btnCancelar);

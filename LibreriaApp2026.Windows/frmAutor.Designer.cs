@@ -73,6 +73,7 @@
             // 
             // toolStrip1
             // 
+            toolStrip1.BackColor = SystemColors.ActiveCaption;
             toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbFiltrar, tsbActualizar, toolStripSeparator2, tsbSalir });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
@@ -157,6 +158,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = SystemColors.ActiveCaption;
             panel2.Controls.Add(btnUltimo);
             panel2.Controls.Add(btnSiguiente);
             panel2.Controls.Add(btnAnterior);
@@ -256,6 +258,7 @@
             // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AllowUserToDeleteRows = false;
+            dgvDatos.BackgroundColor = Color.FromArgb(192, 255, 255);
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colApellido, colNacionalidad, colFNacimiento });
             dgvDatos.Dock = DockStyle.Fill;

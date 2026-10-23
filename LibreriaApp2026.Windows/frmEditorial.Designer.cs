@@ -77,12 +77,13 @@
             // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AllowUserToDeleteRows = false;
+            dgvDatos.BackgroundColor = Color.PaleTurquoise;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colPaisOrigen, colActivo });
             dgvDatos.Dock = DockStyle.Fill;
-            dgvDatos.Location = new Point(0, 81);
+            dgvDatos.Location = new Point(0, 69);
             dgvDatos.Name = "dgvDatos";
-            dgvDatos.Size = new Size(772, 295);
+            dgvDatos.Size = new Size(772, 282);
             dgvDatos.TabIndex = 2;
             // 
             // colId
@@ -116,6 +117,7 @@
             // 
             // panel3
             // 
+            panel3.BackColor = SystemColors.ActiveCaption;
             panel3.Controls.Add(btnUltimo);
             panel3.Controls.Add(btnSiguiente);
             panel3.Controls.Add(btnAnterior);
@@ -126,9 +128,9 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 376);
+            panel3.Location = new Point(0, 351);
             panel3.Name = "panel3";
-            panel3.Size = new Size(772, 74);
+            panel3.Size = new Size(772, 99);
             panel3.TabIndex = 1;
             // 
             // btnUltimo
@@ -222,11 +224,12 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(772, 81);
+            panel2.Size = new Size(772, 69);
             panel2.TabIndex = 0;
             // 
             // toolStrip1
             // 
+            toolStrip1.BackColor = SystemColors.ActiveCaption;
             toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbFiltrar, tsbActualizar, toolStripSeparator2, tsbSalir });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
