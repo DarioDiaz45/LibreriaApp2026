@@ -148,6 +148,7 @@
             btnLibros.TabIndex = 2;
             btnLibros.Text = "Libros";
             btnLibros.UseVisualStyleBackColor = false;
+            btnLibros.Click += btnLibros_Click;
             // 
             // btnTemas
             // 

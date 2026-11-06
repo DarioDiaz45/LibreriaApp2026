@@ -35,7 +35,6 @@
             tsbBorrar = new ToolStripButton();
             tsbEditar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            tsbFiltrar = new ToolStripButton();
             tsbActualizar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             tsbSalir = new ToolStripButton();
@@ -55,6 +54,8 @@
             colApellido = new DataGridViewTextBoxColumn();
             colNacionalidad = new DataGridViewTextBoxColumn();
             colFNacimiento = new DataGridViewTextBoxColumn();
+            tsbFiltrar = new ToolStripSplitButton();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
             panel2.SuspendLayout();
@@ -118,16 +119,6 @@
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 70);
-            // 
-            // tsbFiltrar
-            // 
-            tsbFiltrar.Image = (Image)resources.GetObject("tsbFiltrar.Image");
-            tsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
-            tsbFiltrar.ImageTransparentColor = Color.Magenta;
-            tsbFiltrar.Name = "tsbFiltrar";
-            tsbFiltrar.Size = new Size(52, 67);
-            tsbFiltrar.Text = "Filtrar";
-            tsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // tsbActualizar
             // 
@@ -302,6 +293,23 @@
             colFNacimiento.HeaderText = "F.Nacimiento";
             colFNacimiento.Name = "colFNacimiento";
             // 
+            // tsbFiltrar
+            // 
+            tsbFiltrar.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            tsbFiltrar.Image = (Image)resources.GetObject("tsbFiltrar.Image");
+            tsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
+            tsbFiltrar.ImageTransparentColor = Color.Magenta;
+            tsbFiltrar.Name = "tsbFiltrar";
+            tsbFiltrar.Size = new Size(64, 67);
+            tsbFiltrar.Text = "Filtrar";
+            tsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Text = "toolStripMenuItem1";
+            // 
             // frmAutor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -332,7 +340,6 @@
         private ToolStripButton tsbBorrar;
         private ToolStripButton tsbEditar;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton tsbFiltrar;
         private ToolStripButton tsbActualizar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton tsbSalir;
@@ -352,5 +359,7 @@
         private DataGridViewTextBoxColumn colApellido;
         private DataGridViewTextBoxColumn colNacionalidad;
         private DataGridViewTextBoxColumn colFNacimiento;
+        private ToolStripSplitButton tsbFiltrar;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

@@ -83,6 +83,7 @@
             dgvDatos.Dock = DockStyle.Fill;
             dgvDatos.Location = new Point(0, 69);
             dgvDatos.Name = "dgvDatos";
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(772, 282);
             dgvDatos.TabIndex = 2;
             // 

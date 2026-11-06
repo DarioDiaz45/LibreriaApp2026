@@ -64,8 +64,10 @@ namespace LibreriaApp2026.Datos.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
 
@@ -112,6 +114,9 @@ namespace LibreriaApp2026.Datos.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
                     b.Property<int>("AnioPublicacion")
                         .HasColumnType("int");
 
@@ -122,21 +127,15 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.Property<int>("EditorialId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ISBN")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<decimal>("Precio")
                         .HasPrecision(12, 2)
                         .HasColumnType("decimal(12,2)");
 
                     b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
@@ -147,10 +146,9 @@ namespace LibreriaApp2026.Datos.Migrations
 
                     b.HasIndex("EditorialId");
 
-                    b.HasIndex("ISBN")
-                        .IsUnique();
-
                     b.ToTable("Libros", (string)null);
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("LibreriaApp2026.Entidades.Tema", b =>
@@ -171,8 +169,10 @@ namespace LibreriaApp2026.Datos.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
 
@@ -192,6 +192,54 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.HasIndex("TemasId");
 
                     b.ToTable("LibroTema");
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.TipoLibro.LibroDigital", b =>
+                {
+                    b.HasBaseType("LibreriaApp2026.Entidades.Libro");
+
+                    b.Property<string>("Formato")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Identificador")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<long>("TamanoArchivo")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("UrlDescarga")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasIndex("Identificador")
+                        .IsUnique()
+                        .HasFilter("[Identificador] IS NOT NULL");
+
+                    b.ToTable("LibrosDigitales", (string)null);
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.TipoLibro.LibroFisico", b =>
+                {
+                    b.HasBaseType("LibreriaApp2026.Entidades.Libro");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ISBN")
+                        .IsUnique()
+                        .HasFilter("[ISBN] IS NOT NULL");
+
+                    b.ToTable("LibrosFisicos", (string)null);
                 });
 
             modelBuilder.Entity("AutorLibro", b =>
@@ -231,6 +279,24 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.HasOne("LibreriaApp2026.Entidades.Tema", null)
                         .WithMany()
                         .HasForeignKey("TemasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.TipoLibro.LibroDigital", b =>
+                {
+                    b.HasOne("LibreriaApp2026.Entidades.Libro", null)
+                        .WithOne()
+                        .HasForeignKey("LibreriaApp2026.Entidades.TipoLibro.LibroDigital", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.TipoLibro.LibroFisico", b =>
+                {
+                    b.HasOne("LibreriaApp2026.Entidades.Libro", null)
+                        .WithOne()
+                        .HasForeignKey("LibreriaApp2026.Entidades.TipoLibro.LibroFisico", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -1,4 +1,5 @@
 ﻿using LibreriaApp2026.Entidades;
+using LibreriaApp2026.Entidades.TipoLibro;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibreriaApp2026.Datos
@@ -9,6 +10,8 @@ namespace LibreriaApp2026.Datos
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Tema> Temas { get; set; }
         public DbSet<Libro> Libros { get; set; }
+        public DbSet<LibroFisico> LibrosFisicos { get; set; }
+        public DbSet<LibroDigital> LibrosDigitales { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             object value = optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=LibreriaApp2026;Integrated Security=True;TrustServerCertificate=True");

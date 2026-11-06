@@ -11,16 +11,11 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
     {
         public void Configure(EntityTypeBuilder<Libro> builder)
         {
+            
+            builder.UseTptMappingStrategy();
             builder.ToTable("Libros");
 
             builder.HasKey(l => l.Id);
-
-            builder.Property(l => l.ISBN)
-                .HasMaxLength(20)
-                .IsRequired();
-
-            builder.HasIndex(l => l.ISBN)
-                .IsUnique(); 
 
             builder.Property(l => l.Titulo)
                 .HasMaxLength(200)
@@ -34,18 +29,19 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
                 .HasPrecision(12, 2)
                 .IsRequired();
 
-            builder.Property(l => l.Stock)
-                .IsRequired();
-
             builder.Property(l => l.AnioPublicacion)
                 .IsRequired();
 
-            
+            builder.Property(l => l.Activo)
+                .IsRequired();
+
+            builder.Property(l => l.RowVersion)
+                .IsRowVersion();
+
             builder.HasMany(l => l.Autores)
                 .WithMany(a => a.Libros)
                 .UsingEntity("AutorLibro");
 
-           
             builder.HasMany(l => l.Temas)
                 .WithMany(t => t.Libros)
                 .UsingEntity("LibroTema");

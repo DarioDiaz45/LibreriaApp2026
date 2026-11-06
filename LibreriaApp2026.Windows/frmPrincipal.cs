@@ -48,5 +48,14 @@ namespace LibreriaApp2026.Windows
                 frm.ShowDialog();
             }
         }
+
+        private void btnLibros_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmLibro>())
+            {
+                frm.Text = "Lista de Libros";
+                frm.ShowDialog();
+            }
+        }
     }
 }

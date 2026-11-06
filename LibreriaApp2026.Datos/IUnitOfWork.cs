@@ -8,7 +8,7 @@ namespace LibreriaApp2026.Datos
         IEditorialRepositorio Editoriales { get; }
         IAutorRepositorio Autores { get; }
         ITemaRepositorio Temas { get; }
-        // ILibroRepositorio Libros { get; }
+        ILibroRepositorio Libros { get; }
 
         int SaveChanges();
         void RollBack();
