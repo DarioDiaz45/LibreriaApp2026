@@ -3,7 +3,7 @@ using LibreriaApp2026.Servicios.DTOs.Tema;
 
 namespace LibreriaApp2026.Servicios.Mapeadores
 {
-    public class TemaMapper
+    public static class TemaMapper
     {
         public static TemaListDto ToListDto(Tema tema)
         {

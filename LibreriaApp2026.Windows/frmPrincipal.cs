@@ -57,5 +57,32 @@ namespace LibreriaApp2026.Windows
                 frm.ShowDialog();
             }
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmCliente>())
+            {
+                frm.Text = "Lista de Clientes";
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnFormaDePago_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmFormaDePago>())
+            {
+                frm.Text = "Lista de Formas de Pago";
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            using (var frm = _serviceProvider.GetRequiredService<frmVenta>())
+            {
+                frm.Text = "Lista de Ventas";
+                frm.ShowDialog();
+            }
+        }
     }
 }

@@ -69,6 +69,7 @@
         public virtual Editorial Editorial { get; set; } = null!;
         public virtual ICollection<Autor> Autores { get; set; } = new List<Autor>();
         public virtual ICollection<Tema> Temas { get; set; } = new List<Tema>();
+        public List<DetalleVenta> DetalleVentas { get; set; } = new();
 
 
         public abstract string TipoDescripcion { get; }

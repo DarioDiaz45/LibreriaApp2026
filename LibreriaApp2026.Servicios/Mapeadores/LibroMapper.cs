@@ -4,7 +4,7 @@ using LibreriaApp2026.Servicios.DTOs.Libro;
 
 namespace LibreriaApp2026.Servicios.Mapeadores
 {
-    public class LibroMapper
+    public static class LibroMapper
     {
         public static LibroListDto ToListDto(Libro libro)
         {

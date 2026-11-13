@@ -3,7 +3,7 @@ using LibreriaApp2026.Servicios.DTOs.Autor;
 
 namespace LibreriaApp2026.Servicios.Mapeadores
 {
-    public class AutorMapper
+    public static class AutorMapper
     {
         public static AutorListDto ToListDto(Autor autor)
         {

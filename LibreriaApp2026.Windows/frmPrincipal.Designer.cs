@@ -36,6 +36,9 @@
             label3 = new Label();
             label2 = new Label();
             panel3 = new Panel();
+            btnVentas = new Button();
+            btnFormaDePago = new Button();
+            btnClientes = new Button();
             btnAutores = new Button();
             btnLibros = new Button();
             btnTemas = new Button();
@@ -61,14 +64,14 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(807, 450);
+            panel1.Size = new Size(807, 586);
             panel1.TabIndex = 0;
             // 
             // panel4
             // 
             panel4.Controls.Add(statusStrip1);
             panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(232, 427);
+            panel4.Location = new Point(232, 563);
             panel4.Name = "panel4";
             panel4.Size = new Size(575, 23);
             panel4.TabIndex = 4;
@@ -116,6 +119,9 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaption;
+            panel3.Controls.Add(btnVentas);
+            panel3.Controls.Add(btnFormaDePago);
+            panel3.Controls.Add(btnClientes);
             panel3.Controls.Add(btnAutores);
             panel3.Controls.Add(btnLibros);
             panel3.Controls.Add(btnTemas);
@@ -123,8 +129,44 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 76);
             panel3.Name = "panel3";
-            panel3.Size = new Size(232, 374);
+            panel3.Size = new Size(232, 510);
             panel3.TabIndex = 1;
+            // 
+            // btnVentas
+            // 
+            btnVentas.BackColor = Color.FromArgb(192, 255, 255);
+            btnVentas.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            btnVentas.Location = new Point(35, 454);
+            btnVentas.Name = "btnVentas";
+            btnVentas.Size = new Size(139, 44);
+            btnVentas.TabIndex = 5;
+            btnVentas.Text = "Ventas";
+            btnVentas.UseVisualStyleBackColor = false;
+            btnVentas.Click += btnVentas_Click;
+            // 
+            // btnFormaDePago
+            // 
+            btnFormaDePago.BackColor = Color.FromArgb(192, 255, 255);
+            btnFormaDePago.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            btnFormaDePago.Location = new Point(35, 396);
+            btnFormaDePago.Name = "btnFormaDePago";
+            btnFormaDePago.Size = new Size(139, 44);
+            btnFormaDePago.TabIndex = 5;
+            btnFormaDePago.Text = "Forma De Pago";
+            btnFormaDePago.UseVisualStyleBackColor = false;
+            btnFormaDePago.Click += btnFormaDePago_Click;
+            // 
+            // btnClientes
+            // 
+            btnClientes.BackColor = Color.FromArgb(192, 255, 255);
+            btnClientes.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
+            btnClientes.Location = new Point(35, 310);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(139, 44);
+            btnClientes.TabIndex = 5;
+            btnClientes.Text = "Clientes";
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnAutores
             // 
@@ -211,7 +253,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(807, 450);
+            ClientSize = new Size(807, 586);
             Controls.Add(panel1);
             Name = "frmPrincipal";
             Text = "frmPrincipal";
@@ -245,5 +287,8 @@
         private ToolStripStatusLabel lblUsuario;
         private Label label3;
         private Label label2;
+        private Button btnFormaDePago;
+        private Button btnClientes;
+        private Button btnVentas;
     }
 }

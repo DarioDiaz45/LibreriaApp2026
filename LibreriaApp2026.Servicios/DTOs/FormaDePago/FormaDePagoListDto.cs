@@ -1,0 +1,9 @@
+﻿namespace LibreriaApp2026.Servicios.DTOs.FormaDePago
+{
+    public class FormaDePagoListDto
+    {
+        public int FormaDePagoId { get; set; }
+        public string Nombre { get; set; } = null!;
+        public bool Activo { get; set; }
+    }
+}

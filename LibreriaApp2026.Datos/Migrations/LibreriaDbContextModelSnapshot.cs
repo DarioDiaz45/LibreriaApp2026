@@ -74,6 +74,69 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.ToTable("Autores", (string)null);
                 });
 
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Cliente", b =>
+                {
+                    b.Property<int>("ClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"));
+
+                    b.Property<bool>("Activo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<string>("Telefono")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("ClienteId");
+
+                    b.ToTable("Clientes", (string)null);
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.DetalleVenta", b =>
+                {
+                    b.Property<int>("VentaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LibroId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("VentaId", "LibroId");
+
+                    b.HasIndex("LibroId");
+
+                    b.ToTable("DetalleVentas", (string)null);
+                });
+
             modelBuilder.Entity("LibreriaApp2026.Entidades.Editorial", b =>
                 {
                     b.Property<int>("Id")
@@ -104,6 +167,38 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Editoriales", (string)null);
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.FormaDePago", b =>
+                {
+                    b.Property<int>("FormaDePagoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FormaDePagoId"));
+
+                    b.Property<bool>("Activo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("FormaDePagoId");
+
+                    b.HasIndex("Nombre")
+                        .IsUnique();
+
+                    b.ToTable("FormasDePago", (string)null);
                 });
 
             modelBuilder.Entity("LibreriaApp2026.Entidades.Libro", b =>
@@ -177,6 +272,44 @@ namespace LibreriaApp2026.Datos.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Temas", (string)null);
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Venta", b =>
+                {
+                    b.Property<int>("VentaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VentaId"));
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EstadoVenta")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaVenta")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FormaDePagoId")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<decimal>("TotalVenta")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("VentaId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("FormaDePagoId");
+
+                    b.ToTable("Ventas", (string)null);
                 });
 
             modelBuilder.Entity("LibroTema", b =>
@@ -257,6 +390,25 @@ namespace LibreriaApp2026.Datos.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LibreriaApp2026.Entidades.DetalleVenta", b =>
+                {
+                    b.HasOne("LibreriaApp2026.Entidades.Libro", "Libro")
+                        .WithMany("DetalleVentas")
+                        .HasForeignKey("LibroId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LibreriaApp2026.Entidades.Venta", "Venta")
+                        .WithMany("Detalles")
+                        .HasForeignKey("VentaId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Libro");
+
+                    b.Navigation("Venta");
+                });
+
             modelBuilder.Entity("LibreriaApp2026.Entidades.Libro", b =>
                 {
                     b.HasOne("LibreriaApp2026.Entidades.Editorial", "Editorial")
@@ -266,6 +418,25 @@ namespace LibreriaApp2026.Datos.Migrations
                         .IsRequired();
 
                     b.Navigation("Editorial");
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Venta", b =>
+                {
+                    b.HasOne("LibreriaApp2026.Entidades.Cliente", "Cliente")
+                        .WithMany("Ventas")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LibreriaApp2026.Entidades.FormaDePago", "FormaDePago")
+                        .WithMany("Ventas")
+                        .HasForeignKey("FormaDePagoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("FormaDePago");
                 });
 
             modelBuilder.Entity("LibroTema", b =>
@@ -301,9 +472,29 @@ namespace LibreriaApp2026.Datos.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Cliente", b =>
+                {
+                    b.Navigation("Ventas");
+                });
+
             modelBuilder.Entity("LibreriaApp2026.Entidades.Editorial", b =>
                 {
                     b.Navigation("Libros");
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.FormaDePago", b =>
+                {
+                    b.Navigation("Ventas");
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Libro", b =>
+                {
+                    b.Navigation("DetalleVentas");
+                });
+
+            modelBuilder.Entity("LibreriaApp2026.Entidades.Venta", b =>
+                {
+                    b.Navigation("Detalles");
                 });
 #pragma warning restore 612, 618
         }

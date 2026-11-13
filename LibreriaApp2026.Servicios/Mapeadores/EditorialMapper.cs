@@ -3,7 +3,7 @@ using LibreriaApp2026.Servicios.DTOs.Editorial;
 
 namespace LibreriaApp2026.Servicios.Mapeadores
 {
-    public class EditorialMapper
+    public static class EditorialMapper
     {
         public static EditorialListDto ToListDto(Editorial editorial)
         {

@@ -12,6 +12,10 @@ namespace LibreriaApp2026.Datos
         public DbSet<Libro> Libros { get; set; }
         public DbSet<LibroFisico> LibrosFisicos { get; set; }
         public DbSet<LibroDigital> LibrosDigitales { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<FormaDePago> FormasDePago { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             object value = optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=LibreriaApp2026;Integrated Security=True;TrustServerCertificate=True");

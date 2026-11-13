@@ -1,9 +1,6 @@
 ﻿using LibreriaApp2026.Entidades;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LibreriaApp2026.Datos.EntityTypeConfiguration
 {
@@ -11,7 +8,7 @@ namespace LibreriaApp2026.Datos.EntityTypeConfiguration
     {
         public void Configure(EntityTypeBuilder<Libro> builder)
         {
-            
+
             builder.UseTptMappingStrategy();
             builder.ToTable("Libros");
 

@@ -3,13 +3,17 @@ using LibreriaApp2026.Datos;
 using LibreriaApp2026.Datos.Interfaces;
 using LibreriaApp2026.Datos.Repositorios;
 using LibreriaApp2026.Servicios.DTOs.Autor;
+using LibreriaApp2026.Servicios.DTOs.Cliente;
 using LibreriaApp2026.Servicios.DTOs.Editorial;
+using LibreriaApp2026.Servicios.DTOs.FormaDePago;
 using LibreriaApp2026.Servicios.DTOs.Libro;
 using LibreriaApp2026.Servicios.DTOs.Tema;
 using LibreriaApp2026.Servicios.Interfaces;
 using LibreriaApp2026.Servicios.Servicios;
 using LibreriaApp2026.Servicios.Validators.Autor;
+using LibreriaApp2026.Servicios.Validators.Cliente;
 using LibreriaApp2026.Servicios.Validators.Editorial;
+using LibreriaApp2026.Servicios.Validators.FormaDePago;
 using LibreriaApp2026.Servicios.Validators.Libro;
 using LibreriaApp2026.Servicios.Validators.Tema;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +53,21 @@ namespace LibreriaApp2026.Ioc
             services.AddScoped<ILibroServicio, LibroServicio>();
             services.AddScoped<IValidator<LibroCreateDto>, LibroCreateDtoValidator>();
             services.AddScoped<IValidator<LibroUpdateDto>, LibroUpdateDtoValidator>();
+            //VENTAS
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IFormaDePagoRepositorio, FormaDePagoRepositorio>();
+            services.AddScoped<IVentaRepositorio, VentaRepositorio>();
+            services.AddScoped<IVentaServicio, VentaServicio>();
+
+            //CLIENTE
+            services.AddScoped<IClienteServicio, ClienteServicio>();
+            services.AddScoped<IValidator<ClienteCreateDto>, ClienteCreateDtoValidator>();
+            services.AddScoped<IValidator<ClienteUpdateDto>, ClienteUpdateDtoValidator>();
+
+            //FORMA DE PAGO
+            services.AddScoped<IFormaDePagoServicio, FormaDePagoServicio>();
+            services.AddScoped<IValidator<FormaDePagoCreateDto>, FormaDePagoCreateDtoValidator>();
+            services.AddScoped<IValidator<FormaDePagoUpdateDto>, FormaDePagoUpdateDtoValidator>();
 
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
