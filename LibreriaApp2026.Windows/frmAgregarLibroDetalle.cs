@@ -70,15 +70,7 @@ namespace LibreriaApp2026.Windows
             nudCantidad.Value = 1;
         }
 
-        private void LimpiarSeleccion()
-        {
-            _libroSeleccionado = null;
-            txtLibro.Clear();
-            txtPrecioUnitario.Clear();
-            txtPrecioTotal.Clear();
-            nudCantidad.Maximum = 1;
-            nudCantidad.Value = 1;
-        }
+        
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {

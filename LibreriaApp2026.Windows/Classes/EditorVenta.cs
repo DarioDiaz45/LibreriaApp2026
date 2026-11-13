@@ -17,6 +17,17 @@ namespace LibreriaApp2026.Windows.Classes
             if (detalleDto is null)
                 throw new ArgumentNullException(nameof(detalleDto), "El detalle no puede ser nulo");
 
+            
+            var otraVersion = _ventaDto.Detalle.FirstOrDefault(d =>
+                d.LibroId != detalleDto.LibroId &&
+                string.Equals(d.Libro.Trim(), detalleDto.Libro.Trim(),
+                              StringComparison.OrdinalIgnoreCase));
+
+            if (otraVersion is not null)
+                throw new InvalidOperationException(
+                    $"\"{detalleDto.Libro}\" ya está en la venta en otra versión (físico o digital). " +
+                    "No se puede agregar el mismo libro en los dos formatos.");
+
             var existente = _ventaDto.Detalle
                 .FirstOrDefault(d => d.LibroId == detalleDto.LibroId);
 
