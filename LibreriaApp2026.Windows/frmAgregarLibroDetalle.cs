@@ -19,6 +19,7 @@ namespace LibreriaApp2026.Windows
 
             nudCantidad.Minimum = 1;
             nudCantidad.Maximum = 1;
+            nudCantidad.ValueChanged += nudCantidad_ValueChanged;
 
             cboTipo.Items.AddRange(new object[] { "Todos", "Físico", "Digital" });
             cboTipo.SelectedIndex = 0;

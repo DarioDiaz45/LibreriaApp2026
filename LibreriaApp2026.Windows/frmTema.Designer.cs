@@ -35,7 +35,6 @@
             tsbBorrar = new ToolStripButton();
             tsbEditar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            tsbFiltrar = new ToolStripButton();
             tsbActualizar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             tsbSalir = new ToolStripButton();
@@ -72,7 +71,7 @@
             // toolStrip1
             // 
             toolStrip1.BackColor = SystemColors.ActiveCaption;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbFiltrar, tsbActualizar, toolStripSeparator2, tsbSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbActualizar, toolStripSeparator2, tsbSalir });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 70);
@@ -116,16 +115,6 @@
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 70);
-            // 
-            // tsbFiltrar
-            // 
-            tsbFiltrar.Image = (Image)resources.GetObject("tsbFiltrar.Image");
-            tsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
-            tsbFiltrar.ImageTransparentColor = Color.Magenta;
-            tsbFiltrar.Name = "tsbFiltrar";
-            tsbFiltrar.Size = new Size(52, 67);
-            tsbFiltrar.Text = "Filtrar";
-            tsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // tsbActualizar
             // 
@@ -319,7 +308,6 @@
         private ToolStripButton tsbBorrar;
         private ToolStripButton tsbEditar;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton tsbFiltrar;
         private ToolStripButton tsbActualizar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton tsbSalir;

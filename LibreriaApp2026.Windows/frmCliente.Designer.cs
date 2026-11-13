@@ -38,7 +38,6 @@
             tsbFiltrar = new ToolStripSplitButton();
             tsmActivos = new ToolStripMenuItem();
             tsmNoActivos = new ToolStripMenuItem();
-            tstBuscar3 = new ToolStripTextBox();
             tstBuscar = new ToolStripTextBox();
             tsbActualizar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
@@ -60,6 +59,7 @@
             colTelefono = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
             colActivo = new DataGridViewCheckBoxColumn();
+            tsbBuscar3 = new ToolStripButton();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
             panel2.SuspendLayout();
@@ -79,7 +79,7 @@
             // toolStrip1
             // 
             toolStrip1.BackColor = SystemColors.ActiveCaption;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbEditar, tsbBorrar, toolStripSeparator1, tsbFiltrar, tstBuscar3, tstBuscar, tsbActualizar, toolStripSeparator2, tsbSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbEditar, tsbBorrar, toolStripSeparator1, tsbFiltrar, tsbBuscar3, tstBuscar, tsbActualizar, toolStripSeparator2, tsbSalir });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(766, 70);
@@ -149,13 +149,6 @@
             tsmNoActivos.Size = new Size(132, 22);
             tsmNoActivos.Text = "No Activos";
             tsmNoActivos.Click += tsmNoActivos_Click;
-            // 
-            // tstBuscar3
-            // 
-            tstBuscar3.Name = "tstBuscar3";
-            tstBuscar3.Size = new Size(52, 70);
-            tstBuscar3.Text = "Buscar";
-            tstBuscar3.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // tstBuscar
             // 
@@ -341,6 +334,16 @@
             colActivo.HeaderText = "Activo";
             colActivo.Name = "colActivo";
             // 
+            // tsbBuscar3
+            // 
+            tsbBuscar3.Image = (Image)resources.GetObject("tsbBuscar3.Image");
+            tsbBuscar3.ImageScaling = ToolStripItemImageScaling.None;
+            tsbBuscar3.ImageTransparentColor = Color.Magenta;
+            tsbBuscar3.Name = "tsbBuscar3";
+            tsbBuscar3.Size = new Size(52, 67);
+            tsbBuscar3.Text = "Buscar";
+            tsbBuscar3.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
             // frmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -377,7 +380,6 @@
         private ToolStripButton tsbSalir;
         private Panel panel2;
         private Panel panel3;
-        private ToolStripTextBox tstBuscar3;
         private ToolStripTextBox tstBuscar;
         private Button btnUltimo;
         private Button btnSiguiente;
@@ -398,5 +400,6 @@
         private ToolStripSplitButton tsbFiltrar;
         private ToolStripMenuItem tsmActivos;
         private ToolStripMenuItem tsmNoActivos;
+        private ToolStripButton tsbBuscar3;
     }
 }

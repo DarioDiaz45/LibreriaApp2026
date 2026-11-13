@@ -186,6 +186,7 @@
             tsbSalir.Size = new Size(52, 67);
             tsbSalir.Text = "Salir";
             tsbSalir.TextImageRelation = TextImageRelation.ImageAboveText;
+            tsbSalir.Click += tsbSalir_Click;
             // 
             // panel2
             // 

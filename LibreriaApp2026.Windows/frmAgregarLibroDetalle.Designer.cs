@@ -66,6 +66,7 @@
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colTipo, colCodigo, colTitulo, colPrecio, colStock });
             dgvDatos.Location = new Point(11, 83);
             dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(620, 250);
             dgvDatos.TabIndex = 0;
@@ -118,6 +119,7 @@
             // 
             txtLibro.Location = new Point(106, 352);
             txtLibro.Name = "txtLibro";
+            txtLibro.ReadOnly = true;
             txtLibro.Size = new Size(179, 23);
             txtLibro.TabIndex = 2;
             // 
@@ -134,6 +136,7 @@
             // 
             txtPrecioUnitario.Location = new Point(106, 381);
             txtPrecioUnitario.Name = "txtPrecioUnitario";
+            txtPrecioUnitario.ReadOnly = true;
             txtPrecioUnitario.Size = new Size(179, 23);
             txtPrecioUnitario.TabIndex = 4;
             // 
@@ -166,6 +169,7 @@
             // 
             txtPrecioTotal.Location = new Point(426, 381);
             txtPrecioTotal.Name = "txtPrecioTotal";
+            txtPrecioTotal.ReadOnly = true;
             txtPrecioTotal.Size = new Size(121, 23);
             txtPrecioTotal.TabIndex = 8;
             // 

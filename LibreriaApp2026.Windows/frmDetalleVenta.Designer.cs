@@ -63,6 +63,7 @@
             // 
             txtVentaId.Location = new Point(95, 24);
             txtVentaId.Name = "txtVentaId";
+            txtVentaId.ReadOnly = true;
             txtVentaId.Size = new Size(165, 23);
             txtVentaId.TabIndex = 1;
             // 
@@ -79,6 +80,7 @@
             // 
             txtFecha.Location = new Point(95, 64);
             txtFecha.Name = "txtFecha";
+            txtFecha.ReadOnly = true;
             txtFecha.Size = new Size(165, 23);
             txtFecha.TabIndex = 3;
             // 
@@ -95,6 +97,7 @@
             // 
             txtCliente.Location = new Point(414, 24);
             txtCliente.Name = "txtCliente";
+            txtCliente.ReadOnly = true;
             txtCliente.Size = new Size(161, 23);
             txtCliente.TabIndex = 5;
             // 
@@ -111,6 +114,7 @@
             // 
             txtFormaDePago.Location = new Point(414, 61);
             txtFormaDePago.Name = "txtFormaDePago";
+            txtFormaDePago.ReadOnly = true;
             txtFormaDePago.Size = new Size(161, 23);
             txtFormaDePago.TabIndex = 7;
             // 
@@ -118,6 +122,7 @@
             // 
             txtEstado.Location = new Point(95, 114);
             txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
             txtEstado.Size = new Size(165, 23);
             txtEstado.TabIndex = 8;
             // 
@@ -138,6 +143,7 @@
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colLibro, colPrecio, colCantidad, colSubTotal });
             dgvDatos.Location = new Point(37, 165);
             dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(538, 175);
             dgvDatos.TabIndex = 10;
@@ -148,24 +154,28 @@
             colLibro.DataPropertyName = "Libro";
             colLibro.HeaderText = "Libro";
             colLibro.Name = "colLibro";
+            colLibro.ReadOnly = true;
             // 
             // colPrecio
             // 
             colPrecio.DataPropertyName = "Precio";
             colPrecio.HeaderText = "Precio Unit.";
             colPrecio.Name = "colPrecio";
+            colPrecio.ReadOnly = true;
             // 
             // colCantidad
             // 
             colCantidad.DataPropertyName = "Cantidad";
             colCantidad.HeaderText = "Cantidad";
             colCantidad.Name = "colCantidad";
+            colCantidad.ReadOnly = true;
             // 
             // colSubTotal
             // 
             colSubTotal.DataPropertyName = "SubTotal";
             colSubTotal.HeaderText = "SubTotal";
             colSubTotal.Name = "colSubTotal";
+            colSubTotal.ReadOnly = true;
             // 
             // lblTotal
             // 
@@ -180,6 +190,7 @@
             // 
             txtTotal.Location = new Point(82, 377);
             txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(140, 23);
             txtTotal.TabIndex = 12;
             // 

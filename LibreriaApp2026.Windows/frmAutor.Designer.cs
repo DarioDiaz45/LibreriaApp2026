@@ -54,8 +54,6 @@
             colApellido = new DataGridViewTextBoxColumn();
             colNacionalidad = new DataGridViewTextBoxColumn();
             colFNacimiento = new DataGridViewTextBoxColumn();
-            tsbFiltrar = new ToolStripSplitButton();
-            toolStripMenuItem1 = new ToolStripMenuItem();
             panel1.SuspendLayout();
             toolStrip1.SuspendLayout();
             panel2.SuspendLayout();
@@ -75,7 +73,7 @@
             // toolStrip1
             // 
             toolStrip1.BackColor = SystemColors.ActiveCaption;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbFiltrar, tsbActualizar, toolStripSeparator2, tsbSalir });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbNuevo, tsbBorrar, tsbEditar, toolStripSeparator1, tsbActualizar, toolStripSeparator2, tsbSalir });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(790, 70);
@@ -293,23 +291,6 @@
             colFNacimiento.HeaderText = "F.Nacimiento";
             colFNacimiento.Name = "colFNacimiento";
             // 
-            // tsbFiltrar
-            // 
-            tsbFiltrar.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
-            tsbFiltrar.Image = (Image)resources.GetObject("tsbFiltrar.Image");
-            tsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
-            tsbFiltrar.ImageTransparentColor = Color.Magenta;
-            tsbFiltrar.Name = "tsbFiltrar";
-            tsbFiltrar.Size = new Size(64, 67);
-            tsbFiltrar.Text = "Filtrar";
-            tsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem1
-            // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
-            toolStripMenuItem1.Text = "toolStripMenuItem1";
-            // 
             // frmAutor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -359,7 +340,5 @@
         private DataGridViewTextBoxColumn colApellido;
         private DataGridViewTextBoxColumn colNacionalidad;
         private DataGridViewTextBoxColumn colFNacimiento;
-        private ToolStripSplitButton tsbFiltrar;
-        private ToolStripMenuItem toolStripMenuItem1;
     }
 }

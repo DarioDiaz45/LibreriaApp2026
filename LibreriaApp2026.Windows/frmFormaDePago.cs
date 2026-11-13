@@ -341,5 +341,10 @@ namespace LibreriaApp2026.Windows
         }
 
         #endregion
+
+        private void tsbSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -51,7 +51,9 @@
             tsbBorrar = new ToolStripButton();
             tsbEditar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
-            tsbFiltrar = new ToolStripButton();
+            tsbFiltrar = new ToolStripDropDownButton();
+            tsmActivo = new ToolStripMenuItem();
+            tsmNoActivo = new ToolStripMenuItem();
             tsbActualizar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             tsbSalir = new ToolStripButton();
@@ -278,13 +280,28 @@
             // 
             // tsbFiltrar
             // 
+            tsbFiltrar.DropDownItems.AddRange(new ToolStripItem[] { tsmActivo, tsmNoActivo });
             tsbFiltrar.Image = (Image)resources.GetObject("tsbFiltrar.Image");
             tsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
             tsbFiltrar.ImageTransparentColor = Color.Magenta;
             tsbFiltrar.Name = "tsbFiltrar";
-            tsbFiltrar.Size = new Size(52, 67);
+            tsbFiltrar.Size = new Size(61, 67);
             tsbFiltrar.Text = "Filtrar";
             tsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // tsmActivo
+            // 
+            tsmActivo.Name = "tsmActivo";
+            tsmActivo.Size = new Size(180, 22);
+            tsmActivo.Text = "Activo";
+            tsmActivo.Click += tsmActivo_Click;
+            // 
+            // tsmNoActivo
+            // 
+            tsmNoActivo.Name = "tsmNoActivo";
+            tsmNoActivo.Size = new Size(180, 22);
+            tsmNoActivo.Text = "No Activo";
+            tsmNoActivo.Click += tsmNoActivo_Click;
             // 
             // tsbActualizar
             // 
@@ -344,7 +361,6 @@
         private ToolStripButton tsbBorrar;
         private ToolStripButton tsbEditar;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton tsbFiltrar;
         private ToolStripButton tsbActualizar;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton tsbSalir;
@@ -361,5 +377,8 @@
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colPaisOrigen;
         private DataGridViewCheckBoxColumn colActivo;
+        private ToolStripDropDownButton tsbFiltrar;
+        private ToolStripMenuItem tsmActivo;
+        private ToolStripMenuItem tsmNoActivo;
     }
 }

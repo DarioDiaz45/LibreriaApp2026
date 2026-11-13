@@ -54,7 +54,7 @@ namespace LibreriaApp2026.Windows
                             _estado.RegistrosPorPagina,
                             campoOrdenar,
                             esAscendente,
-                            filtroPais);
+                            filtroActivo: filtroActivo);
 
                     if (resultadoConsulta.IsFailure)
                     {
@@ -106,6 +106,11 @@ namespace LibreriaApp2026.Windows
         private void tsbActualizar_Click(object sender, EventArgs e)
         {
             filtroPais = null;
+            filtroActivo = null;
+
+            tsmActivo.Checked = false;
+            tsmNoActivo.Checked = false;
+
             tsbFiltrar.BackColor = SystemColors.Control;
             ActualizarInformacion();
         }
@@ -335,6 +340,34 @@ namespace LibreriaApp2026.Windows
         {
             _estado.UltimaPagina();
             RecargarGrilla();
+        }
+
+        private void tsmActivo_Click(object sender, EventArgs e)
+        {
+            AplicarFiltroActivo(true);
+        }
+
+        private void tsmNoActivo_Click(object sender, EventArgs e)
+        {
+            AplicarFiltroActivo(false);
+        }
+
+        private void AplicarFiltroActivo(bool valor)
+        {
+            
+            filtroActivo = filtroActivo == valor ? null : valor;
+
+            tsmActivo.Checked = filtroActivo == true;
+            tsmNoActivo.Checked = filtroActivo == false;
+
+            ActualizarColorFiltro();
+            ActualizarInformacion();
+        }
+
+        private void ActualizarColorFiltro()
+        {
+            bool hayFiltros = filtroPais != null || filtroActivo != null;
+            tsbFiltrar.BackColor = hayFiltros ? Color.LightGreen : SystemColors.Control;
         }
     }
 }
